@@ -5,10 +5,10 @@
   a, a:link, a:visited {
     color: #0099FF;
     text-decoration: underline dotted;
-    background-color: #0099FF;
   }
   a:hover {
     color: #FF9933;
+    background-color: #0099FF;
   }
   body {
     font-family: 'Quicksand', sans-serif;
