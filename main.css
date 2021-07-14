@@ -4,11 +4,12 @@
   }
   a, a:link, a:visited {
     color: #0099FF;
-    text-decoration: underline dotted;
+    text-decoration: none;
   }
   a:hover {
     color: #FF9933;
     background-color: #0099FF;
+    text-decoration-thickness: 3px;
   }
   body {
     font-family: 'Quicksand', sans-serif;
