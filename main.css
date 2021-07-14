@@ -4,7 +4,7 @@
   }
   a, a:link, a:visited {
     color: #0099FF;
-    text-decoration: none;
+    text-decoration: underline dotted;
     background-color: #0099FF;
   }
   a:hover {
