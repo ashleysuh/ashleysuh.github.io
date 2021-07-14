@@ -5,7 +5,7 @@
   a, a:link, a:visited {
     color: #0099FF;
     text-decoration: none;
-    background-color: none;
+    background-color: #0099FF;
   }
   a:hover {
     color: #FF9933;
