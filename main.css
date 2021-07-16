@@ -17,8 +17,9 @@
     vertical-align: bottom;
     color: #505050;
   }
-  hr{
-    padding: 0px;
-    margin: 0px;    
+  .center {
+    margin: auto;
+    width: 60%;
+    padding: 10px;
   }
 </style>
