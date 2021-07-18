@@ -1,0 +1,478 @@
+
+<html>
+<head>
+  <title>Tufts:  Comp 11 HW 3</title>
+  <link rel = "stylesheet" type = "text/css" href = "../../course.css">
+</head>
+<body>
+<div id = "topmatter">
+    <h1>Comp 11</h1>
+    <h1>Homework 3</h1>
+  </div>
+</div>
+<div id = "maincontent" class = "plain_text">
+  <h2> Functions, Parameters, Recursion </h2>
+  <hr>
+  <p> This homework will help you learn how to write user-defined
+  functions, loops and recursion in Python.  You will also build upon
+  your existing knowledge of programming in Python with
+  conditionals.  The skills that you will learn from this homework will
+  give you a solid foundation in programming. </p>
+
+  <h3> Start soon: This Homework Takes Time </h3>
+  <p> These exercises are challenging.  Before you dive straight into
+  coding, it is helpful to sit back and think about how you plan to
+  write your code first.  Here are some things you could try:
+
+    <ul> 
+      <li> Understand the problems by thinking through some examples.
+      <li> Using your examples, devise tests that cover as many
+        different cases as possible.  Think corner cases, or edge
+        cases.  (Don't forget that 0 is a number and a file can be
+        empty!) </li>
+      <li> Think aloud to yourself and write down some pseudocode. </li>
+      <li> Run your programs and partial solutions often, understand
+        error messages, fix your bugs, breath, and recurse... </li>
+    </ul></p>
+
+    <p> As always, make a <code>hw3</code> directory on the Homework
+    server for this assignment.  Change into that directory, and then
+    use the following command to copy over some starter files: </p>
+      <blockquote><pre>
+cp /comp/11/files/hw3/* ./
+  </pre></blockquote>
+
+  <hr>
+  <h3> Written Section </h3>
+  <hr>
+  <p> A file called <code> written.text</code> containing the questions
+  below have been created for you.  You should edit the file and write
+  down all your answers to the written component in that file.</p>
+  <h4> Written #1 </h4>
+  <p> For each of the following functions, specify the possible valid
+  types of the input parameter <code> x</code>, and the possible
+  return types.  An input has a valid type if passing that input to the
+    function will not raise a <code> TypeError</code>. </p>
+  <p>
+    For example, consider the following function:
+    <pre>
+def make_exciting(s):
+    return s + "!!" </pre>
+    This function has a valid input type of string (<code>str</code>),
+    because a value has to be a string if you want to
+    use <code>+</code> to concatenate another string
+    (<code>"!!"</code>).   The return type of this function is also
+    string. 
+  </p>
+  <p> In your answers, choose from one or more of the following
+  types: </p>
+  <blockquote><pre>int float string boolean None</pre></blockquote>
+
+  <p> In Python, any value can be treated as a boolean for test.  For
+  example, <code>1</code> can be treated as <code>True</code>
+  and <code>0</code> can be treated as <code>False</code>.  But for
+  the purpose of this exercise, pretend that is not true: a boolean
+  can only be a boolean. </p>
+
+  <ol type = "a">
+  <li>
+  <blockquote><pre>
+def a(x):
+    return x + 1 </pre></blockquote>
+  <li>
+    <blockquote><pre>
+def b(x):
+    return x + 0.1 </pre></blockquote>
+  <li>
+    <blockquote><pre>
+def c(x):
+    return x > 1 </pre></blockquote>
+  <li>
+    <blockquote><pre>
+def d(x):
+  print(x) </pre></blockquote>
+  <li>
+    <blockquote><pre>
+def e(x):
+  return x + x </pre></blockquote>
+  </ol>
+  <h4>Written #2</h4>
+
+  <p>Assume the following functions have been defined in a session of
+  Python3. </p>
+
+  <blockquote><pre>
+def foo(a, b, c):
+    if a:
+        return b + c
+    return b - c
+
+def bar(x, y):
+    return foo(x < y, x, y) </pre></blockquote>
+
+  <p>What is the type and value of the following expressions? </p>
+
+  <ol type = "a">
+  <li> <code> foo(True, 1, 2) </code>
+  <li> <code> bar(10, 5) </code>
+  <li> <code> bar(foo(1 > 2, 1, 2), 3) </code>
+  </ol>
+
+  <h4> Written #3 </h4>
+
+  <p>Assume the following function has been defined in a session of
+  Python3. </p>
+
+  <blockquote><pre>
+def fun(x, y, z):
+    if x < y:
+        y -= x
+    else:
+        y = x - y
+    
+    if y > x:    
+        print("shark meldon")
+    elif z > x and z > y:
+        print("mark sheldon")
+    elif z > y:
+        print("tufts university")
+    else:
+        print("comp11") </pre></blockquote>
+  <p> Give, if possible, a combination
+  of <code>x</code>, <code>y</code>, <code>z</code> that will allow
+  the program to print each of the following strings. If the string
+  cannot be produced by the above function, then say so, and explain
+  why. </p>
+
+  <ol type = "a">
+    <li> <code> shark meldon </code> 
+    <li> <code> mark sheldon </code>
+    <li> <code> tufts university </code>
+    <li> <code> comp11 </code>
+  </ol>
+
+  <h4> Written #4 </h4>
+
+  <p> Before you start working on each of the three programming
+  exercises below, devise and write down at least three test cases for
+  each.  You should state clearly what the inputs are, and what the
+  printed result should look like.  Describe, if you can, what each of
+  the test cases test for. </p>
+
+  <p> Your tests should be different from the examples given below. </p>
+
+  <p> Making tests before you begin coding is a very useful
+  programming practice.  Your tests will help you understand the
+  problem and uncover bugs when you test your program. </p>
+  <hr>
+  <h3> Programming Section </h3>
+  <hr>
+  <p> <b> IMPORTANT: Do Not Use Global Variables </b> In all of your code for this course, we forbid the use of global variables (variables defined outside of any function or under <code> if __name__ == '__main__':</code>). We have used, and we'll continue to use, global <i> constants</i>. Learn how to use parameters.</p> 
+
+  <p> <b> IMPORTANT: Output Format Matters. </b> These problems will
+  specify the format of the input data and also the format your
+  program <i> must </i> use when reporting results. You will <i> lose
+  many points </i> if your program does not report results in the <i>
+  exact format </i> specified by the problems. </p>
+
+  <p><b> IMPORTANT: Comments and Indenting. </b> Your code must be
+  readable. There are three parts to writing readable code: comments,
+  indenting, and functions.  You must include comments at the top of
+  your program and before each function. The comments at the top of
+  your program must include your name, date, title, and brief
+  description.  The comments for each function must include the
+  purpose, the meaning of the parameters, and any value returned. Some
+  of the code from labs are good examples.  Your code must be indented
+  using four spaces for each level of indentation. </p>
+  <p> Finally, as you’ve seen already, breaking a big program into
+  smaller, named actions (functions, abbreviations) makes the program
+  easier to manage and easier to read. Use small functions (under 20
+  lines each, way under is better). </p>
+
+  <p> To help you get started, we have provided you a template for the
+  following programming exercises called <code>
+  template.py </code>. </p>
+
+
+  <h4> Programming #1: <code> feet.py </code></h4>
+
+  <p> The first programming exercise is to help you get comfortable
+  with writing functions in Python. Write a program
+  named <code>feet.py</code> that reads in a length in feet and
+  inches, and outputs the equivalent lengths in meters and
+  centimeters. Your program must ask the user for the number of feet
+  and inches, and output the correct length in meters and centimeters
+  using the format shown here (the bolded items are typed by the
+  user): </p>
+    <blockquote><code>
+    Feet? <b> 12 </b> <br>
+    Inches? <b> 7</b> <br>
+    3 meters, 84 centimeters
+    </code></blockquote>
+  <p> This example is indented for typesetting purposes. You should
+  print every line at the beginning of each line. There is a single
+  endline at the end of the last line. </p>
+  <p>Your program should repeat the computation until the user chooses
+  to stop. After you finish every conversion, print the following
+  message and read in a single character, <b> Y </b> or <b> N</b>, as
+  follows: </p>
+    <blockquote><code> Continue(Y/N)? <b> Y</b> </code> </blockquote>
+  <p> In the case of a <b> Y </b>, ask the user again for feet and
+  inches and repeat the conversion. Otherwise, you should terminate
+  the program. </p>
+
+  <p> If a user provides you a negative number for either the number
+  of feet or number of inches, print a error message to the terminal
+  after both numbers have been received:</p>
+  <blockquote><pre>Error: input should be nonnegative.</pre></blockquote> 
+  <p> Here's a full example: </p>
+
+  <blockquote><code>
+    Feet? <b> 100 </b> <br>
+    Inches? <b> 2 </b> <br>
+    30 meters, 53 centimeters <br>
+    Continue(Y/N)? <b> Y</b> <br>
+    Feet? <b> 5 </b> <br>
+    Inches? <b> 1 </b> <br>
+    1 meter, 55 centimeters <br>
+    Continue(Y/N)? <b> Y</b> <br>
+    Feet? <b> 0 </b> <br>
+    Inches? <b> 0 </b> <br>
+    0 meters, 0 centimeters <br>
+    Continue(Y/N)? <b> Y</b> <br>
+    Feet? <b> -1 </b> <br>
+    Inches? <b> 0 </b> <br>
+    Error: input should be nonnegative. <br>
+    Continue(Y/N)? <b> N</b> <br>
+    </code></blockquote>
+
+  <p> <b> Requirements</b> 
+    <ul>
+      <li> You must write <code> if __name__ == '__main__': </code> at
+      the bottom of your code, and it should serve no other purpose
+      than calling a function called <code> main() </code> with no
+      parameters. </li>
+      <li> <code> main()</code> contains a <code> while </code>
+      loop. In every iteration of the loop, it reads in the two
+      integers from the user then calls a function
+      called <code>print_meters_centimeters()</code> that accepts the
+      two integers as parameters. After the call
+      to <code>print_meters_centimeters()</code> is complete, it
+      should ask the user whether or not to continue.</li>
+      <li><code>print_meters_centimeters()</code> prints the
+      equivalent length in meters and centimeters according to the
+      format specified above. </li>
+      <li> <b> DO </b> worry about singular forms of the words
+      'meters' and 'centimeters'. </li>
+      <li> Your output should match <i> exactly </i> with the example
+      given above, including the error messages. </li>
+      <li> When printing the number of meters and centimeters, round to the <i> nearest integer</i>, which may require rounding up or down. </li>
+      <li> Under no circumstances may you put the entire program under <code> main() </code> or <code> if __name__ == '__main__': </code>. </li>
+    </ul>
+  </p> 
+  <p> A program written without the use of
+  the <code>print_meters_centimeters() </code> function will earn no
+  credit.</p>
+  <p> There are 0.3048 meters in a foot, 100 centimeters in a meter,
+  and 12 inches in a foot. </p>
+  <p> Before you begin, think through all of these functions. Each
+  should have a single, repeatable job. Make sure you consider what
+  the names, parameters, and return types of each one should be. </p>
+  </pre></blockquote>
+
+  <p> <b> How to get started </b> </p>
+  <ol> 
+    <li> <b> Make Test Data: </b> Devise at least 3 different test
+    cases before you start coding and document them in <code>
+    written.text</code>. You should use these test cases to test your
+    program.</li>
+    <li> <b> Write the Code: </b> To use the template we've provided
+    you, use the command:
+  <blockquote><code>cp template.py feet.py</code> </blockquote> 
+  Then edit <code> feet.py </code> with the editor of your choice.  </li>
+    <li> <b> Test, Fix, ...: </b> Do not write everything at once. Start small, run often, and fix your code:
+      <blockquote><code>python3 feet.py</code> </blockquote></li>
+  </ol>
+
+
+  <h4> Programming #2: <code>pattern.py </code> </h4>
+  <p> You've seen in lab how to print inches of snow recursively in
+  Python. Similarly, in this exercise, you will draw shapes based on
+  user input. For example,
+  <blockquote><pre>
+XXXXX
+XXX--
+X----
+XXX--
+XXXXX
+  </pre></blockquote>
+  Or, for even numbers:
+    <blockquote><pre>
+XXXXXX
+XXXX--
+XX----
+------
+XX----
+XXXX--
+XXXXXX
+  </pre></blockquote></p>
+  <p> Write a program called <code> pattern</code> that reads in two
+  strings and the integer width of the pattern.  The program prints a
+  picture as shown with the two strings.  In the first example above,
+  the two strings are "X" and "-" , and the width is 5.  In the second
+  example, the strings are the same, but the width is 6. </p>
+
+  <p> The program must ask the user for input using the following format:</p>
+  <blockquote><code>
+    First string? <b> X</b><br>
+    Second string? <b> - </b><br>
+    Width? <b> 5 </b>
+    </code> </blockquote>
+
+  <p> <b> Requirements</b> 
+    <ul> <li> You must write at least two functions: <code>
+    main() </code> and <code> draw_pattern()</code>. You may, if you
+    wish, use other functions to draw each row or each part of each
+    row. Observe that there are no spaces between characters in a
+    line. There is a single new line after the end of each line,
+    including the last line. </li>
+    <li> If the program is given nonpositive or floating point input,
+    it should exit without printing anything </li>
+    <li> For this assignment, you <b> must use recursion </b>. A
+    program not using recursion will earn no credit. </li>
+    </ul>
+  </p>
+  <p> <b> A program not using recursion will earn no credit. <br>
+          A program not using recursion will earn no credit. <br>
+          A program not using recursion will earn no credit. <br> </b></p>
+
+  <!-- <p> <b> Printing in Python </b> </p> -->
+  <p> You may find yourself needing to use the Python <code>
+  print() </code> function without adding a newline at the end of your
+  sentence. You can do this by adding an optional <em>keyword
+  parameter</em> <code> end = ""</code> to the function: </p>
+  <blockquote><pre> 
+print("Hello, ", end = "")
+print("world.")
+</pre></blockquote>
+    <p> The <code> print() </code> function, like many other functions
+    in Python, accepts optional paramters such as <code>
+    end</code>. These parameters have default values, which for <code>
+    end </code> is a newline character, but may be changed to suit
+      your purposes. </p>
+    <p>Try typing the above examples into a Python 3 shell to make
+    sure you understand what the <code>end</code> keyword paramter
+    to <code>print</code> does.</p>
+
+
+  <p> As before, you should write the test cases first. You may use the template to get started by running: </p>
+  <blockquote><code>cp template.py pattern.py</code> </blockquote>
+
+  <h4> Programming #3: <code> reverse.py </code></h4>
+  <p> Write a program called <code> reverse </code> that reads a file
+  in and writes a new file. The new file should be the same as the
+  file read in, but with every line reversed. For example, if this is
+  the file provided by the user:</p>
+  <blockquote> <pre>
+this is a line
+Another line
+comp11 is fun!
+y
+a
+y
+</pre></blockquote>
+  <p> Then this should be the file written by the program: </p>
+
+  <blockquote> <pre>
+enil a si siht
+enil rehtonA
+!nuf si 11pmoc
+y
+a
+y
+  </pre></blockquote>
+  <p> Your program should start off by asking the user for the name of
+  the file using the following prompt: </p>
+  <blockquote><code>Enter a filename: <b>testfile</b> </code></blockquote>
+
+  <p>The user repsonse is in <b>bold</b> again.</p>
+  <p> Once you are done reversing the file, write a file that is
+  named <code> reversed_</code> plus the name of the original
+  file. For example, if the file provided by the user is called <code>
+  testfile</code>, then you should write a file to the same directory
+  called <code> reversed_testfile</code>. </p>
+
+
+
+  <p> <b> Requirements</b> 
+    <ul> <li> Use <i> functions, functions, </i>and<i>
+    functions</i>. Break this large problem into smaller subproblems,
+    each of which is accomplished by a different function. To help you
+    design a solution, you must have at least one function
+    dedicated to reversing a string. </li>
+    <li> The function that reverses a string <b> must use
+    recursion </b>.  A program that does not use recursion will be <b>
+    heavily penalized</b>. </li>
+    <li> For the rest of your program, you may use loops or recursions
+    at your discretion. </li>
+    <li> You do not have to worry about a file that does not exist or
+    is corrupted. </li>
+    <li> Every line in a file ends with an 'invisible' endline
+    character.  A naive solution will reverse the line so that the
+    endline character is moved to the beginning of the line. This is
+    not the behavior we want.  Make sure that the endline character is
+    still at the end of the line, rather than at the beginning. <i>
+    This might be tricky</i>. </li>
+    <li> You should <i> write </i> the reversed lines to a file. <b>
+        DO NOT </b> print to terminal. </li>
+    <li> DO NOT use built-in facilities for reversing sequences.
+    Write it yourself.
+    </ul>
+  </p>
+
+  <p> Don't rush into coding &mdash; think carefully before you begin. Your
+  test cases for this exercise should be text files that you
+  created.  Copy the contents of these text files to the written
+  portion of this homework to earn credit for written #4. </p>
+
+  <p> To successfully complete this exercise, you will need to
+  understand basic file I/O and string manipulation.  See below.
+  </p>
+  <p>
+    Remember that a file is nothing more than a very long
+  chunk of string, and a string is nothing more than a sequence of
+  chars. You might find it helpful to use the built-in
+  function <code>len()</code> and <code>strip()</code> on strings, and
+  use string indexing to get each individual character.</p>
+  <blockquote><pre>
+aString = "Hello, world."
+print(aString[4])  # Prints 'o' 
+print(aString[-1]) # Prints the last char of the string, which is 'd'
+  </blockquote>
+
+  <p> Among the files you've copied is an example program <code>
+  read_and_print.py </code> that illustrates basic file reading in
+  Python. You should also refer to the official documention of Python3
+  on file I/O, which can be
+  found <a href="https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files">here</a>. The
+  required textbook, <i> Think Python </i> by Allen Downey, has a easy
+  introduction to Python file IO in section 14.2. </p>
+
+  <h4> Submitting Your Work </h4>
+
+  <p> When you are ready to submit, turn them in by typing: </p>
+  <blockquote><pre>provide comp11 hw3 written.text feet.py pattern.py reverse.py </blockquote>
+
+<!-- ch 14 sec 9.1 of think python -->
+</div>
+<div id = "dogtag">
+  CREDIT GOES TO:
+   Mark A. Sheldon 
+   (<a href="mailto:msheldon@cs.tufts.edu">msheldon@cs.tufts.edu</a>)<br>
+      
+      Last Modified 2018-Feb-11
+</div> <!-- dogtag -->
+
+</body>
+</html>
+ 
